@@ -1,0 +1,278 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #f5f5f5;
+  color: #1a1a1a;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Header */
+header {
+  background: #1d4ed8;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 1.25rem;
+}
+
+#guest-controls,
+#auth-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#guest-controls button,
+#auth-controls button {
+  background: white;
+  color: #1d4ed8;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#current-username {
+  font-weight: bold;
+}
+
+/* Nav */
+nav {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+nav button {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.75rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+nav button:hover {
+  color: #1d4ed8;
+}
+
+/* Main */
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+section h2 {
+  font-size: 1.1rem;
+  color: #374151;
+}
+
+section h3 {
+  font-size: 1rem;
+  color: #374151;
+}
+
+/* Auth forms — override section's column direction */
+#auth-section {
+  flex-direction: row;
+  gap: 2rem;
+}
+
+form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+form input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+form button[type='submit'] {
+  background: #1d4ed8;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+/* Error messages */
+.error {
+  color: #dc2626;
+  font-size: 0.9rem;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* User cards */
+.user-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.user-card:hover {
+  border-color: #1d4ed8;
+  background: #eff6ff;
+}
+
+.user-id {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: normal;
+}
+
+/* Bookmark cards */
+.bookmark-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bookmark-card a {
+  font-weight: 500;
+  color: #1d4ed8;
+  text-decoration: none;
+  flex: 1;
+}
+
+.bookmark-card a:hover {
+  text-decoration: underline;
+}
+
+.bookmark-byline {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.username-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #6b7280;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.username-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.delete-bookmark-btn {
+  background: none;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-left: auto;
+}
+
+.delete-bookmark-btn:hover {
+  background: #fee2e2;
+}
+
+/* Profile section */
+#profile-info {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#own-profile-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+#change-password-form {
+  max-width: 360px;
+}
+
+#danger-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  background: #fff5f5;
+  max-width: 360px;
+}
+
+#danger-zone h3 {
+  color: #dc2626;
+  font-size: 0.95rem;
+}
+
+#delete-account-btn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}

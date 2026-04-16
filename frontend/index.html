@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authorization Middleware</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Putting It All Together</h1>
+      <div id="user-controls">
+        <div id="guest-controls">
+          <button id="show-auth-btn">Log In / Register</button>
+        </div>
+        <div id="auth-controls" class="hidden">
+          <span id="current-username"></span>
+          <button id="logout-btn">Log Out</button>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <button id="show-users-btn">All Users</button>
+      <!-- NEW: public bookmarks feed — always visible -->
+      <button id="show-bookmarks-btn">All Bookmarks</button>
+      <button id="show-profile-btn" class="hidden">My Profile</button>
+    </nav>
+
+    <main>
+      <!-- Auth: login and register forms, hidden until "Log In / Register" is clicked -->
+      <section id="auth-section" class="hidden">
+        <form id="login-form">
+          <h2>Log In</h2>
+          <label for="login-username" class="hidden">Username</label>
+          <input type="text" id="login-username" name="username" placeholder="Username" required />
+          <label for="login-password" class="hidden">Password</label>
+          <input type="password" id="login-password" name="password" placeholder="Password" required />
+          <p id="login-error" class="error hidden"></p>
+          <button type="submit">Log In</button>
+        </form>
+
+        <form id="register-form">
+          <h2>Register</h2>
+          <label for="register-username" class="hidden">Username</label>
+          <input type="text" id="register-username" name="username" placeholder="Username" required />
+          <label for="register-password" class="hidden">Password</label>
+          <input type="password" id="register-password" name="password" placeholder="Password" required />
+          <p id="register-error" class="error hidden"></p>
+          <button type="submit">Register</button>
+        </form>
+      </section>
+
+      <!-- Users: list of all registered users -->
+      <section id="users-section">
+        <h2>All Users</h2>
+        <ul id="users-list"></ul>
+      </section>
+
+      <!-- NEW: public feed of all bookmarks with user attribution -->
+      <section id="bookmarks-section" class="hidden">
+        <h2>All Bookmarks</h2>
+
+        <!-- NEW: add form — shown only when logged in (toggled by renderAuthView) -->
+        <form id="add-bookmark-form" class="hidden">
+          <h3>Add Bookmark</h3>
+          <label for="bookmark-title" class="hidden">Title</label>
+          <input type="text" id="bookmark-title" name="title" placeholder="Title" required />
+          <label for="bookmark-url" class="hidden">URL</label>
+          <input type="url" id="bookmark-url" name="url" placeholder="https://..." required />
+          <p id="add-bookmark-error" class="error hidden"></p>
+          <button type="submit">Save Bookmark</button>
+        </form>
+
+        <ul id="bookmarks-list"></ul>
+      </section>
+
+      <!-- CHANGED: profile can now show any user, not just the logged-in user -->
+      <section id="profile-section" class="hidden">
+        <h2>Profile</h2>
+        <div id="profile-info">
+          <p>Username: <strong id="profile-username"></strong></p>
+          <p>User ID: <strong id="profile-user-id"></strong></p>
+        </div>
+
+        <!-- NEW: bookmarks for the user being viewed -->
+        <h3>Bookmarks</h3>
+        <ul id="profile-bookmarks-list"></ul>
+
+        <!-- NEW: settings are wrapped here and hidden when viewing someone else's profile -->
+        <div id="own-profile-settings" class="hidden">
+          <form id="change-password-form">
+            <h3>Change Password</h3>
+            <!-- We need the label for screen readers but can hide it if we have placeholder text -->
+            <label for="new-password" class="hidden">New Password</label>
+            <input type="password" id="new-password" name="password" placeholder="New password" required />
+            <p id="change-password-error" class="error hidden"></p>
+            <button type="submit">Update Password</button>
+          </form>
+
+          <div id="danger-zone">
+            <h3>Danger Zone</h3>
+            <button id="delete-account-btn">Delete My Account</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
