@@ -2,15 +2,11 @@
 
 ## Setup
 
+Follow these steps to get the server up and running. It currently uses hard-coded values to set up `pool.js` and the `cookie-session` middleware. In the TODOs below, you will fix that!
+
 1. Edit `server/db/pool.js` and update the user and password fields to match your local Postgres setup (On macOS you may be able to delete those fields entirely)
 
-2. Copy `.env.template` to `.env` and fill in a `SESSION_SECRET` value:
-
-```sh
-cp server/.env.template server/.env
-```
-
-3. Run these commands to set up the database, seed, and start the server:
+2. Run these commands to set up the database, seed, and start the server:
 
 ```sh
 cd server
@@ -29,6 +25,8 @@ npm run db:seed
 npm run dev
 ```
 
+Note: If you get an error `connection to server on socket "/tmp/.s.PGSQL.5432" failed: No such file or directory`, double check that Postgres is running
+
 ## Seeded users
 
 | Username | Password    |
@@ -39,8 +37,10 @@ npm run dev
 
 ## TODOs
 
+Complete these TODOs to prepare your application for deployment.
+
 **Project Setup**
-- [ ] Create the `.env` file with `pg` connection variables filled in and a `SESSION_SECRET`
+- [ ] Copy the `.env.template` file to create a `.env` file with Posgres connection variables filled in and a `SESSION_SECRET`
 - [ ] Install `dotenv`
 
 **pool.js**
