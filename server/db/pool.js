@@ -1,13 +1,15 @@
 // ✍️ TODO 1: Import dotenv and run config()
 
-const { Pool } = require('pg');
+const { Pool } = require("pg");
+require("dotenv").config();
+console.log(process.env);
 
 // ✍️ TODO 2: Replace hard-coded values with process.env
 
 const config = {
-  host: 'localhost',
-  port: 5432,
-  database: 'users_db',
+  host: process.env.PGHOST,
+  port: process.env.PGPORT,
+  database: process.env.PGDATABASE,
   // user: 'username',
   // password: 'password',
 };
