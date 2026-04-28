@@ -3,7 +3,7 @@
 // ====================================
 
 // ✍️ TODO 1: Import dotenv and invoke config()
-
+require('dotenv').config()
 const path = require('path');
 const express = require('express');
 
@@ -20,7 +20,7 @@ const { listBookmarks, listUserBookmarks, createBookmark, updateBookmark, delete
 const app = express();
 
 // ✍️ TODO 2: Replace hard-coded PORT with `process.env.PORT || 8080`
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 const pathToFrontend = process.env.NODE_ENV === 'production' ? '../frontend/dist' : '../frontend';
 
@@ -33,7 +33,7 @@ app.use(logRoutes);
 // ✍️ TODO 3: Replace hard-coded secret with `process.env.SESSION_SECRET`
 app.use(cookieSession({
   name: 'session',
-  secret: 'dev-only-secret-replace-before-deploying',
+  secret: 'process.env.SESSION_SECRET',
   maxAge: 24 * 60 * 60 * 1000,
 }));
 app.use(express.json());
